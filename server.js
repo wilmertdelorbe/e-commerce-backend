@@ -1,7 +1,7 @@
 const express = require('express');
 const sequelizeConnection = require('./config/dbconfig');
 
-const apiRoutes = require('./routes/mainRouter');
+const apiRoutes = require('./routes/api');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 3001;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use(apiRoutes);
+app.use('/api', apiRoutes);
 
 // Sync Sequelize models with the database and start the server
 sequelizeConnection.sync({ force: false }).then(() => {
