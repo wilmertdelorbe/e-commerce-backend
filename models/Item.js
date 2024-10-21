@@ -1,32 +1,34 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/dbconfig');
 
-// Junction model to represent the many-to-many relationship between Items and Attributes
-class ItemAttribute extends Model {}
+class Item extends Model {}
 
-ItemAttribute.init(
+Item.init(
   {
-    // Unique identifier for each item-attribute association
-    item_attribute_id: {
+    item_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
       autoIncrement: true,
     },
-    // Foreign key referencing the Item model
-    item_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'item',
-        key: 'item_id',
-      },
+    item_name: {
+      type: DataTypes.STRING,
+      allowNull: false,
     },
-    // Foreign key referencing the Attribute model
-    attribute_id: {
+    price: {
+      type: DataTypes.DECIMAL(10, 2),
+      allowNull: false,
+    },
+    stock: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 0,
+    },
+    group_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'attribute',
-        key: 'attribute_id',
+        model: 'item_group',
+        key: 'group_id',
       },
     },
   },
@@ -35,8 +37,8 @@ ItemAttribute.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'item_attribute',
+    modelName: 'item',
   }
 );
 
-module.exports = ItemAttribute;
+module.exports = Item;

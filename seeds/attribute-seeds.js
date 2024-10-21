@@ -1,22 +1,15 @@
-const { ItemAttribute } = require('../../models');
+const { Attribute } = require('../models');
 
-// Sample data for item-attribute associations
-const itemAttributeData = [
-  { item_id: 1, attribute_id: 6 },
-  { item_id: 1, attribute_id: 7 },
-  { item_id: 1, attribute_id: 8 },
-  { item_id: 2, attribute_id: 6 },
-  { item_id: 3, attribute_id: 1 },
-  { item_id: 3, attribute_id: 3 },
-  { item_id: 3, attribute_id: 4 },
-  { item_id: 3, attribute_id: 5 },
-  { item_id: 4, attribute_id: 1 },
-  { item_id: 4, attribute_id: 2 },
-  { item_id: 4, attribute_id: 8 },
-  { item_id: 5, attribute_id: 3 },
+// Sample data for attributes
+const attributeData = [
+  { attribute_name: 'Color' },
+  { attribute_name: 'Size' },
+  { attribute_name: 'Material' },
+  { attribute_name: 'Style' },
+  { attribute_name: 'Brand' },
 ];
 
-// Function to seed the item_attribute junction table
-const seedItemAttributes = () => ItemAttribute.bulkCreate(itemAttributeData);
+// Function to seed the attribute table
+const seedAttributes = () => Attribute.bulkCreate(attributeData);
 
-module.exports = seedItemAttributes;
+module.exports = seedAttributes;

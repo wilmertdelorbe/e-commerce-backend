@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Attribute, Item, ItemAttribute } = require('../../models/modelAssociations');
+const { Attribute, Item, ItemAttribute } = require('../../models');
 
 // GET all attributes
 router.get('/', async (req, res) => {

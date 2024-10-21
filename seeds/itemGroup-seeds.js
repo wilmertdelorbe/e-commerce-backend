@@ -1,7 +1,4 @@
-const { ItemGroup } = require('../../models');
-
-// Define sample data for item groups (categories)
-const itemGroupData = [
+const { ItemGroup } = require('../models/itemgroup');const itemGroupData = [
   { group_name: 'Outerwear' },
   { group_name: 'Pants' },
   { group_name: 'Electronics' },
